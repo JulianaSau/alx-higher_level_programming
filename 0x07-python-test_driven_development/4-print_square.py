@@ -1,20 +1,16 @@
 #!/usr/bin/python3
-'''Contains print sqaure function
-The function print_squre prints a square using the '#' character
-'''
+"""
+This is the "4-print_square" module.
+
+The 4-print_square  module supplies one function, print_square(size).
+"""
 
 
 def print_square(size):
-    '''Prints a square using the '#' character
-    args:
-        size (int): The size of the square
-    '''
-    if not isinstance(size, int):
-        raise TypeError('size must be an integer')
-    elif size < 0:
-        raise ValueError('size must be >= 0')
-
-    for i in range(size):
-        for i in range(size):
-            print('#', end='')
-        print()
+    """prints a square with "#"'s that has a length of size """
+    if type(size) is not int:
+        raise TypeError("size must be an integer")
+    if size < 0:
+        raise ValueError("size must be >= 0")
+    if size > 0:
+        print(("#" * size + "\n") * size, end="")
