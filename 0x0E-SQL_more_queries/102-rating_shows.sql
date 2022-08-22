@@ -1,16 +1,7 @@
--- Script that lists shows that don't belong to Comedy genre
-SELECT tv_shows.title -- Query to get shows that are not comedies
+-- lists all shows from hbtn_0d_tvshows_rate by their rating
+-- lists all rows of a table by the sum of a linked row
+SELECT title, SUM(tv_show_ratings.rate) 'rating'
 FROM tv_shows
-LEFT JOIN
-(
-	SELECT tv_shows.title -- Query to get Comedy shows
-	FROM tv_shows
-     	JOIN tv_show_genres
-     	     ON tv_show_genres.show_id = tv_shows.id
-     	JOIN tv_genres
-     	     ON tv_genres.id = tv_show_genres.genre_id
-	WHERE tv_genres.name = "Comedy"
-	ORDER BY tv_shows.id
-) comedy_shows ON comedy_shows.title = tv_shows.title
-WHERE comedy_shows.title is NULL
-ORDER BY tv_shows.title;
+LEFT JOIN tv_show_ratings ON tv_show_ratings.show_id = tv_shows.id
+GROUP BY title
+ORDER BY rating DESC;
