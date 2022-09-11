@@ -15,12 +15,12 @@ if __name__ == "__main__":
     search_param = argv[4]
 
     db = MySQLdb.connect(host=db_location,
-                        user=username,
-                        db=db_name,
-                        port=port)
+                         user=username,
+                         db=db_name,
+                         port=port)
 
     cursor = db.cursor()
-    query = """SELECT * FROM states 
+    query = """SELECT * FROM states
             WHERE BINARY name = '{}' ORDER BY id ASC""".format(search_param)
 
     cursor.execute(query)

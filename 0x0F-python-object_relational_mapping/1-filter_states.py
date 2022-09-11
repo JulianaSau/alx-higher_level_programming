@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-''' lists all states with a name starting with N 
+''' lists all states with a name starting with N
 (upper N) from the database hbtn_0e_0_usa '''
 
 
@@ -21,7 +21,8 @@ if __name__ == "__main__":
 
     cursor = db.cursor()
 
-    cursor.execute("""SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY states.id ASC""")
+    cursor.execute("""SELECT * FROM states WHERE
+                    name LIKE BINARY 'N%' ORDER BY states.id ASC""")
 
     data = cursor.fetchall()
 
