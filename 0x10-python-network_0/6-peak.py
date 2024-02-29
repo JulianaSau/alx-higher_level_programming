@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+"""Module that contains a function that finds peak of an array"""
+
 
 def find_peak(list_of_integers):
     """Function that finds a peak in a list of unsorted integers
