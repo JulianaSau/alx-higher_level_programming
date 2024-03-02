@@ -9,8 +9,11 @@ import requests
 if __name__ == "__main__":
     url = "https://api.github.com/repos/{}/{}/commits".format(
         sys.argv[1], sys.argv[2])
-    params = {'per_page': 10}
-    r = requests.get(url, params=params)
+
+    # params = {'per_page': 10}
+
+    # r = requests.get(url, params=params)
+    r = requests.get(url)
     commits = r.json()
     try:
         for i in range(10):
