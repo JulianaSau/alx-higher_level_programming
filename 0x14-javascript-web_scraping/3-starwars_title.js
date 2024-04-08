@@ -1,17 +1,12 @@
 #!/usr/bin/node
 
-const req = require('request');
-const argsCount = process.argv.length - 2;
+const request = require('request');
+const url = `https://swapi-api.hbtn.io/api/films/${process.argv[2]}/`;
 
-if (argsCount > 0) {
-  const id = process.argv[2];
-  const endpoint = `https://swapi-api.alx-tools.com/api/films/${id}`;
-
-  req(endpoint, function (err, res, body) {
-    if (err) throw err;
-    else {
-      const film = JSON.parse(body);
-      console.log(film);
-    }
-  });
-}
+request(url, (err, res, body) => {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log(JSON.parse(body).title);
+  }
+});
